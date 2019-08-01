@@ -33,6 +33,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
     (typeof preloadedState === 'function' && typeof enhancer === 'function') ||
     (typeof enhancer === 'function' && typeof arguments[3] === 'function')
   ) {
+    //确保只有一个enhance函数。
     throw new Error(
       'It looks like you are passing several store enhancers to ' +
         'createStore(). This is not supported. Instead, compose them ' +
@@ -49,7 +50,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
     if (typeof enhancer !== 'function') {
       throw new Error('Expected the enhancer to be a function.')
     }
-
+    //相当于给了enhancer拿到createStore参数和结果的机会。
     return enhancer(createStore)(reducer, preloadedState)
   }
 
@@ -132,6 +133,8 @@ export default function createStore(reducer, preloadedState, enhancer) {
 
     let isSubscribed = true
 
+    // 确保监听或者取消监听不会影响当前次序中正在执行的listeners。
+    // 先对当前执行的listener的数组做一次浅拷贝，然后再往新的数组中插入listener
     ensureCanMutateNextListeners()
     nextListeners.push(listener)
 
@@ -195,6 +198,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
       )
     }
 
+    // 防止在reducer函数执行的内部发生dispatch
     if (isDispatching) {
       throw new Error('Reducers may not dispatch actions.')
     }
@@ -221,7 +225,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
    * You might need this if your app implements code splitting and you want to
    * load some of the reducers dynamically. You might also need this if you
    * implement a hot reloading mechanism for Redux.
-   *
+   * 主要用来做代码分割
    * @param {Function} nextReducer The reducer for the store to use instead.
    * @returns {void}
    */
