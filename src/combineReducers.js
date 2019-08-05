@@ -93,7 +93,7 @@ function assertReducerShape(reducers) {
     }
   })
 }
-
+// 上面的三个函数都是对reducer做一些校验
 /**
  * Turns an object whose values are different reducer functions, into a single
  * reducer function. It will call every child reducer, and gather their results
@@ -141,7 +141,7 @@ export default function combineReducers(reducers) {
   } catch (e) {
     shapeAssertionError = e
   }
-
+  // combineReducers时，根据reducers的key对store做了拆分，每次action来了，每个reducer都会执行并且相互不影响。
   return function combination(state = {}, action) {
     if (shapeAssertionError) {
       throw shapeAssertionError
