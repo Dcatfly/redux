@@ -17,11 +17,11 @@ It is tiny (2kB, including dependencies).
 [![Changelog #187](https://img.shields.io/badge/changelog-%23187-lightgrey.svg?style=flat-square)](https://changelog.com/187)
 
 ## Learn Redux
-[ x ] createStore.js
-[ x ] compose.js
-[ x ] applyMiddleware.js
-[ ] bindActionCreators.js
-[ ] combineReducers.js
+- [x] createStore.js
+- [x] compose.js
+- [x] applyMiddleware.js
+- [ ] bindActionCreators.js
+- [ ] combineReducers.js
 
 ## License
 
