@@ -18,6 +18,10 @@ It is tiny (2kB, including dependencies).
 
 ## Learn Redux
 [ x ] createStore.js
+[ x ] compose.js
+[ x ] applyMiddleware.js
+[ ] bindActionCreators.js
+[ ] combineReducers.js
 
 ## License
 
