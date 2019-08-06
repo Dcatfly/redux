@@ -20,7 +20,7 @@ It is tiny (2kB, including dependencies).
 - [x] createStore.js
 - [x] compose.js
 - [x] applyMiddleware.js
-- [ ] bindActionCreators.js
+- [x] bindActionCreators.js
 - [x] combineReducers.js
 
 ## License

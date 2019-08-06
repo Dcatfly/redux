@@ -12,6 +12,7 @@ function bindActionCreator(actionCreator, dispatch) {
  *
  * For convenience, you can also pass an action creator as the first argument,
  * and get a dispatch wrapped function in return.
+ * 工具函数 用来帮助创建dispatch(action) 不过平时用的不多
  *
  * @param {Function|Object} actionCreators An object whose values are action
  * creator functions. One handy way to obtain it is to use ES6 `import * as`
